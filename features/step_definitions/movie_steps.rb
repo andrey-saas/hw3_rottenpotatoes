@@ -6,7 +6,7 @@ Given /the following movies exist/ do |movies_table|
 end
 
 Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
-  page.body =~ Regexp.new(".*#{e1}.*#{e2}.*")
+  assert_match(/#{e1}.*#{e2}/m, page.body)
 end
 
 When /I (un)?check the following ratings?: (.*)/ do |uncheck, rating_list|
